@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+</head>
+<style>
+    #col1{   
+        padding : 10px 20px;
+        width:300px;
+        text-align:center;
+    }
+    #grade {
+        font-size: 50px;
+        color: #6F0D0E;
+    }
+    h1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background-color: rgb(83, 83, 151);
+        height: 50px;
+        font-family: 'Times New Roman', Times, serif;
+        margin: 0;
+    }
+    h2 {
+        margin-top: 40px;
+        font-size:40px;
+    }
+    div {
+       margin-left:30%;
+    }
+</style>
+<body>
+    <h1>Task 9 - Conditions</h1>
+
+    <div>
+        <h2>Grade Calculator</h2>
+        <input type="text" id="col1" placeholder="Enter Score point" oninput="score();">
+        <h3 id="grade">Your grade is :</h3>
+    </div>
+
+    <script>
+        function score() {
+            let score = document.getElementById("col1").value;
+            let grade = " ";
+            if (score >= 80 && score <= 100) {
+                grade = "A";
+            } else if (score >= 60 && score <= 79) {
+                grade = "B";
+            } else if (score >= 40 && score <= 59) {
+                grade = "C";
+            } else {
+                grade = "F";
+            }
+            document.getElementById("grade").innerHTML = "Your grade is: " + grade;
+        }
+    </script>
+</body>
+</html>

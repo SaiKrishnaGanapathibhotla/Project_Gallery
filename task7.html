@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>task 7</title>
+</head>
+<style>
+    h2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background-color: rgb(83, 83, 151);
+        height: 50px;
+        font-family: 'Times New Roman', Times, serif;
+        margin: 0;
+    }
+
+</style>
+
+<body>
+    <h2>Task 7 - The Console Output</h2>
+    <pre>
+    <h1>The JavaScript code</h1>
+        let x = 5;
+        console.log("The Addition of two numbers :", x + 5);
+        console.log("The Subtraction of two numbers :", x - 2);
+        console.log("The Multiplication of two numbers :", x * 3);
+        console.log("The Division  of  the given number :", x / 2);
+        console.log("The Modulus of the given number :", x % 2);
+
+    </pre>
+    <div id="content">
+        <h1>The Result </h1>
+        <label>The Addition of two numbers : </label><span id="add"></span><br />
+        <label>The Subtraction of two numbers :</label><span id="sub"></span><br />
+        <label>The Multiplication of two numbers :</label><span id="mul"></span><br />
+        <label>The Division  of  the given number :</label><span id="div"></span><br />
+        <label>The Modulus of the given number :</label><span id="mod"></span><br />
+    </div>
+    <script>
+        let x = 5;
+        let add = x + 5
+        let sub = x - 2
+        let mul = x * 3
+        let div = x / 2
+        let mod = x % 2
+
+        document.getElementById("add").innerText = add;
+        document.getElementById("sub").innerText = sub;
+        document.getElementById("mul").innerText = mul;
+        document.getElementById("div").innerText = div;
+        document.getElementById("mod").innerText = mod;
+
+    </script>
+</body>
+</html>

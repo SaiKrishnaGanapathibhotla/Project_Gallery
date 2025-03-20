@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 10 - Call Stack with Array</title>
+    <style>
+        /* Header Styling */
+        h1 {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            background-color: rgb(83, 83, 151);
+            padding: 20px;
+            width: 100%;
+            font-size: 24px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        /* Input and Button Styling */
+        div {
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        input {
+            width: 40%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            color: white;
+            background-color: rgb(83, 83, 151);
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            width: 120px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+            button:hover {
+                background-color: #4b4b8f;
+                transform: scale(1.05);
+            }
+
+        /* Result Styling */
+        #result {
+            color: rgb(83, 83, 151);
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        // Call Stack Array Functionality
+        let arr1 = [];
+
+        function task(action) {
+            const user_input = document.getElementById("col1").value;
+            let res1 = "";
+
+            // ADD Task to the Array
+            if (action === 'add') {
+                if (user_input.trim() !== "") { // Ensure input is not empty
+                    arr1.push(user_input);
+                    res1 = arr1.join(", ");
+                }
+            }
+            // REMOVE Last Task from the Array
+            else if (action === 'undo') {
+                if (arr1.length > 0) { // Ensure array is not empty
+                    arr1.pop();
+                    res1 = arr1.join(", ");
+                }
+            }
+
+            // Display the Updated Process Line
+            document.getElementById("result").innerHTML = `Process Line: ${res1}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Task 10 - Call Stack with Array</h1>
+    <div>
+        <input type="text" id="col1" placeholder="Enter Task Name">
+        <button id="add" onclick="task('add')">ADD Task</button>
+        <button id="undo" onclick="task('undo')">Undo Task</button>
+        <h3 id="result">Process Line: </h3>
+    </div>
+</body>
+</html>

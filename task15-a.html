@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Age Calculator</title>
+    </head>
+    <style>
+        h1 {
+            color: whitesmoke;
+            background-color: rgb(83, 83, 151);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 45px;
+        }
+
+        div {
+            margin-top: 50px;
+            margin-left: 25%;
+        }
+        input {
+            padding: 12px;
+            margin-left: 10px;
+            font-family: 'Times New Roman', Times, serif;
+            border-style: none;
+            border-radius: 5px;
+            color: whitesmoke;
+            background-color: rgb(83, 83, 151,0.5);
+            width: 200px;
+            height: 30px;
+            text-align: center;
+        }
+        label {
+            font-size: 35px;
+            color:red;
+        }
+        #output{
+            padding: 12px;
+            margin-left: 10px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+    <body>
+        <h1>Task 15 A - Age Calculator</h1>
+        <div class="container">
+            <label>Select your Date of Birth :</label>
+            <input type="date" id="dob" onchange="getAge()">
+            <div id="output"></div>
+        </div>
+
+        <script>
+            function getAge() {
+                const dobInput = document.getElementById('dob').value;
+                if (dobInput) {
+                    const dob = new Date(dobInput);
+                    const today = new Date();
+
+                    let age = today.getFullYear() - dob.getFullYear();
+                    const monthDiff = today.getMonth() - dob.getMonth();
+                    const dayDiff = today.getDate() - dob.getDate();
+                    if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+                        age--;
+                    }
+
+                    document.getElementById("output").innerHTML = `<h3 style=" font-size: 35px; margin-left: 10px;">You are ${age} Years Old</h3>`;
+                }
+            }
+        </script>
+    </body>
+</html>

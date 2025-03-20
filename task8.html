@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function convertToUpperCase() {
+                let text = document.getElementById("tab1").value;
+                let result = text.toUpperCase();
+                document.getElementById("tab2").value = result;
+            }
+        </script>
+    </head>
+    <style>
+        h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            background-color: rgb(83, 83, 151);
+            height: 50px;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+        }
+        div{
+            margin-top:40px;
+            margin-left:27%;
+        }
+        input {
+          padding:10px;
+          font-size:30px;
+        }
+        
+    </style>
+    <body>
+        <h1>Task 8 - String Operation</h1>
+        <div id="container">
+            <input type="text" placeholder="Enter your Text" id="tab1" oninput="convertToUpperCase()">
+            <input type="text" placeholder="Your Text in UpperCase" id="tab2">
+        </div>
+    </body>
+</html>

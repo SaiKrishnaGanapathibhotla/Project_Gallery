@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 14 B - Class Work Functions</title>
+    <style>
+        
+        h1 {
+            color: whitesmoke;
+            background-color: rgb(83, 83, 151);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 45px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+     
+        div {
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 60%;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+       
+        button {
+            background-color: rgb(82, 82, 182);
+            color: white;
+            padding: 14px;
+            border-style: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+            button:hover {
+                background-color: rgb(62, 62, 162);
+                transform: scale(1.05);
+            }
+
+        
+        input {
+            padding: 14px;
+            margin: 10px;
+            width: 70%;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        
+        label {
+            font-size: 24px;
+            display: block;
+            margin-top: 10px;
+        }
+
+      
+        span {
+            font-size: 28px;
+            color: orangered;
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Task 14 B - Class Work Functions</h1>
+    <div id="container">
+        <input type="number" placeholder="Enter start number" id="start">
+        <input type="number" placeholder="Enter end number" id="end">
+        <button id="generate" onclick="generate();">Generate Random Number</button>
+        <label>Random Number:</label>
+        <span id="output">---</span>
+    </div>
+
+    <script>
+        function generate() {
+            
+            const num1 = parseInt(document.getElementById("start").value);
+            const num2 = parseInt(document.getElementById("end").value);
+
+          
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid numbers.");
+                return;
+            }
+
+            if (num2 <= num1) {
+                alert("End number must be greater than start number.");
+                return;
+            }
+
+            const randomNum = Math.floor(Math.random() * (num2 - num1 + 1)) + num1;
+            document.getElementById("output").textContent = randomNum;
+        }
+
+        function vanish() {
+            document.getElementById("container").style.display = 'none';
+        }
+
+        function reappear() {
+            document.getElementById("container").style.display = 'block';
+        }
+
+        
+        setTimeout(vanish, 5000);
+        setTimeout(reappear, 10000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Page</title>
+
+</head>
+<style>
+    h1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        background-color: rgb(83, 83, 151);
+        height: 50px;
+        font-family: 'Times New Roman', Times, serif;
+        margin: 0;
+    }
+    input {
+        margin-top: 20px;
+        width: 200px;
+        padding: 10px;
+    }
+</style>
+<body>
+    <h1>Task-12B StarPrint With Colors</h1>
+    <input type="text" placeholder="enter a positive number" id="number" onInput="star();">
+    <div id="demo"></div>
+    <script>
+        const colors = ["red", "green", "blue", "orange"];
+        let idx = 0;
+
+        function star() {
+            let text = "";
+            let user_input = document.getElementById("number").value;
+            for (let i = 0; i <= user_input; i++) {
+                for (let j = 0; j < i; j++) {
+                    text += "* ";
+                }
+                text += "<br>";
+            }
+            document.getElementById("demo").innerHTML = text;
+            //changing the color of an element - One way
+            // let star = document.getElementById("demo");
+            // star.style.color = "green";
+            //changing the color of an element - 2nd way
+            document.getElementById("demo").style = "color : " + colors[idx];
+            idx = (idx + 1) % colors.length;
+
+
+        }
+    </script>
+</body>
+</html>

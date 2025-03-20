@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 13 - Class Work Object</title>
+    <style>
+        /* Header Styling */
+        h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            background-color: rgb(83, 83, 151);
+            height: 50px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        /* Input and Button Styling */
+        input {
+            width: 80%;
+            max-width: 400px;
+            margin: 10px auto;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            display: inline-block;
+            color: white;
+            background-color: rgb(82, 82, 182);
+            width: 140px;
+            padding: 10px;
+            margin: 5px;
+            border-style: none;
+            border-radius: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+            button:hover {
+                background-color: rgb(60, 60, 150);
+                transform: scale(1.05);
+            }
+
+        /* Containers for Display */
+        div#container, div#objectDataContainer {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 500px;
+            background-color: rgb(83, 83, 151);
+            color: white;
+            font-size: 18px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: none; /* Initially hidden */
+        }
+
+            div#container h3, div#objectDataContainer h3 {
+                font-size: 20px;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+    </style>
+</head>
+<body>
+    <h1>Task 13 - Class Work Object</h1>
+    <div>
+        <input type="text" placeholder="Enter student Name" id="sName">
+        <input type="text" placeholder="Enter student Id" id="sId">
+        <input type="text" placeholder="Enter Department Name" id="sDept">
+        <button onclick="insertData();">Insert Info</button>
+        <button onclick="showData();">Show Info</button>
+        <button onclick="displayObjectData();">All Students Data</button>
+    </div>
+    <div id="container"></div>
+    <div id="objectDataContainer"></div>
+
+    <script>
+        // Array to Store Student Details
+        let allDetails = [];
+
+        // Function to Insert Data
+        function insertData() {
+            const studentName = document.getElementById("sName").value.trim();
+            const studentId = document.getElementById("sId").value.trim();
+            const studentDept = document.getElementById("sDept").value.trim();
+
+            if (!studentName || !studentId || !studentDept) {
+                alert("All fields are required!");
+                return;
+            }
+
+            const studentDetails = {
+                name: studentName,
+                studentId: studentId,
+                department: studentDept,
+                greet() {
+                    return "Hello Sir, These are my details.";
+                }
+            };
+
+            allDetails.push(studentDetails);
+            alert("Student Data inserted successfully!");
+            // Clear input fields
+            document.getElementById("sName").value = '';
+            document.getElementById("sId").value = '';
+            document.getElementById("sDept").value = '';
+        }
+
+        // Function to Show Latest Data
+        function showData() {
+            if (allDetails.length > 0) {
+                const latestStudent = allDetails[allDetails.length - 1];
+                document.getElementById("container").style.display = "block"; // Show container
+                document.getElementById("container").innerHTML = `
+                        <h3>Newly Inserted Student Data</h3>
+                        Name: ${latestStudent.name} <br>
+                        Student ID: ${latestStudent.studentId} <br>
+                        Department: ${latestStudent.department} <br><br>
+                        ${latestStudent.greet()}
+                    `;
+            } else {
+                document.getElementById("container").style.display = "block"; // Show container
+                document.getElementById("container").innerHTML = "No data available. Please insert some student details.";
+            }
+            document.getElementById("objectDataContainer").style.display = "none"; // Hide other container
+        }
+
+        // Function to Display All Data
+        function displayObjectData() {
+            if (allDetails.length > 0) {
+                let dataHtml = '';
+                allDetails.forEach((details, index) => {
+                    dataHtml += `
+                            <div>
+                                <h3>Student ${index + 1} Details</h3>
+                                Name: ${details.name} <br>
+                                Student ID: ${details.studentId} <br>
+                                Department: ${details.department} <br>
+                            </div>
+                        `;
+                });
+
+                document.getElementById("objectDataContainer").style.display = "block"; // Show container
+                document.getElementById("objectDataContainer").innerHTML = dataHtml;
+            } else {
+                document.getElementById("objectDataContainer").style.display = "block"; // Show container
+                document.getElementById("objectDataContainer").innerHTML = "No data available to display.";
+            }
+            document.getElementById("container").style.display = "none"; // Hide other container
+        }
+    </script>
+</body>
+</html>

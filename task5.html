@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4 - Calculator</title>
+    <style>
+        h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            background-color: rgb(83, 83, 151);
+            height: 50px;
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+        }
+
+        #res {
+            width: 90%;
+            font-size: 30px;
+            height: 50px;
+            margin-bottom: 20px;
+            text-align: end;
+            padding-right: 10px;
+            border-radius: 5px;
+        }
+
+        input {
+            width: 44%;
+            font-size: 20px;
+            height: 40px;
+            margin: 5px;
+            text-align: center;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 10px;
+            width: 220px;
+            font-size: 18px;
+            color: black;
+            background-color: #F0BD1A;
+            padding: 10px;
+            border-style: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+            button:hover {
+                background-color: #e5a50f;
+                transform: scale(1.05);
+            }
+
+        .button_div {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        #container {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 500px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+    </style>
+    <script>
+        function addition() {
+            let x = parseFloat(document.getElementById("num1").value);
+            let y = parseFloat(document.getElementById("num2").value);
+            let result = x + y;
+            document.getElementById("res").value = result;
+        }
+        function subtraction() {
+            let x = parseFloat(document.getElementById("num1").value);
+            let y = parseFloat(document.getElementById("num2").value);
+            let result = x - y;
+            document.getElementById("res").value = result;
+        }
+        function multiplication() {
+            let x = parseFloat(document.getElementById("num1").value);
+            let y = parseFloat(document.getElementById("num2").value);
+            let result = x * y;
+            document.getElementById("res").value = result;
+        }
+        function division() {
+            let x = parseFloat(document.getElementById("num1").value);
+            let y = parseFloat(document.getElementById("num2").value);
+            let result = y !== 0 ? (x / y).toFixed(2) : "Cannot divide by zero!";
+            document.getElementById("res").value = result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Task 4 - Calculator</h1>
+    <div id="container">
+        <div class="input_div">
+            <input placeholder="Result will appear here" id="res" disabled />
+            <input type="number" placeholder="Enter the value of X" id="num1" />
+            <input type="number" placeholder="Enter the value of Y" id="num2" />
+        </div>
+        <div class="button_div">
+            <button onclick="addition()">Addition (X + Y)</button>
+            <button onclick="subtraction()">Subtraction (X - Y)</button>
+            <button onclick="multiplication()">Multiplication (X * Y)</button>
+            <button onclick="division()">Division (X / Y)</button>
+        </div>
+    </div>
+</body>
+</html>
