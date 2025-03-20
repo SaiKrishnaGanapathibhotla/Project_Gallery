@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task 14 A - Student Information</title>
     <style>
-       
         h1 {
             color: whitesmoke;
             background-color: rgb(83, 83, 151);
@@ -17,7 +16,6 @@
             font-family: Arial, sans-serif;
         }
 
-        
         #student_info {
             display: flex;
             flex-wrap: wrap;
@@ -33,15 +31,14 @@
 
         input {
             padding: 10px;
-            width: 80px; 
+            width: 130px;
             margin-bottom: 15px;
             border-radius: 10px;
             border: 1px solid #ccc;
             font-size: 14px;
-            text-align: center; 
+            text-align: center;
         }
 
-  
         button {
             background-color: rgb(82, 82, 182);
             color: white;
@@ -60,7 +57,6 @@
                 transform: scale(1.05);
             }
 
-   
         #container, #searchResults {
             margin: 20px auto;
             padding: 10px;
@@ -73,7 +69,7 @@
 
             #container.active, #searchResults.active {
                 display: block;
-                background-color: rgb(83, 83, 151); 
+                background-color: rgb(83, 83, 151);
             }
 
         #searchTerm {
@@ -89,6 +85,42 @@
             font-size: 18px;
             font-weight: bold;
         }
+        #info {
+            background-color: green;
+        }
+
+            #info:hover {
+                color: green;
+                background-color: whitesmoke;
+            }
+
+        #show {
+            background-color: red;
+        }
+
+            #show:hover {
+                color: red;
+                background-color: whitesmoke;
+            }
+
+        #clear {
+            background-color: orangered;
+        }
+
+            #clear:hover {
+                color: yellow;
+                background-color: whitesmoke;
+            }
+
+        #display {
+            background-color: blue;
+        }
+
+            #display:hover {
+                color: blue;
+                background-color: whitesmoke;
+            }
+
     </style>
 </head>
 <body>
@@ -105,11 +137,11 @@
             </div>
             <div>
                 <label>Student Department:</label><br>
-                <input type="text" placeholder="Enter Department Name" id="sDept">
+                <input type="text" placeholder="Enter Dept Name" id="sDept">
             </div>
         </div>
         <div id="links">
-            <button onclick="insertData();" id="info">Insert Info</button>
+            <button onclick="insertData();" id="info" >Insert Info</button>
             <button onclick="showData();" id="show">Show Info</button>
             <button onclick="clearData();" id="clear">Clear Input</button>
             <button onclick="clearDisplay();" id="display">Clear Display</button>
@@ -118,7 +150,6 @@
         <div id="searchResults"></div>
         <div id="container"></div>
     </div>
-
     <script>
         let allDetails = [];
 
@@ -145,7 +176,6 @@
             allDetails.push(newStudent);
             alert("Student data inserted successfully!");
 
-          
             document.getElementById("sName").value = '';
             document.getElementById("sId").value = '';
             document.getElementById("sDept").value = '';
@@ -155,14 +185,14 @@
             if (allDetails.length > 0) {
                 const latestStudent = allDetails[allDetails.length - 1];
                 const container = document.getElementById("container");
-                container.classList.add("active"); 
+                container.classList.add("active");
                 container.innerHTML = `
-                        <h3>Newly Inserted Student Data</h3>
-                        Name: ${latestStudent.name} <br>
-                        Student ID: ${latestStudent.id} <br>
-                        Department: ${latestStudent.department} <br><br>
-                        ${latestStudent.greet()}
-                    `;
+                            <h3>Newly Inserted Student Data</h3>
+                            Name: ${latestStudent.name} <br>
+                            Student ID: ${latestStudent.id} <br>
+                            Department: ${latestStudent.department} <br><br>
+                            ${latestStudent.greet()}
+                        `;
             } else {
                 alert("No data available. Please insert some student details.");
             }
@@ -176,23 +206,30 @@
 
         function clearDisplay() {
             const container = document.getElementById("container");
-            container.classList.remove("active"); 
+            container.classList.remove("active");
             container.innerHTML = '';
             const searchResults = document.getElementById("searchResults");
-            searchResults.classList.remove("active"); 
+            searchResults.classList.remove("active");
             searchResults.innerHTML = '';
         }
 
         function searchData() {
             const searchTerm = document.getElementById("searchTerm").value.toLowerCase();
+            const searchResults = document.getElementById("searchResults");
+
+            if (!searchTerm.trim()) {
+                searchResults.classList.remove("active");
+                searchResults.innerHTML = '';
+                return;
+            }
+
             const filteredStudents = allDetails.filter(student =>
                 student.name.toLowerCase().includes(searchTerm) ||
                 student.id.toLowerCase().includes(searchTerm)
             );
 
-            const searchResults = document.getElementById("searchResults");
             if (filteredStudents.length > 0) {
-                searchResults.classList.add("active"); 
+                searchResults.classList.add("active");
                 let resultsHtml = "<h2>Search Results</h2>";
                 filteredStudents.forEach(student => {
                     resultsHtml += `
@@ -205,7 +242,7 @@
                 });
                 searchResults.innerHTML = resultsHtml;
             } else {
-                searchResults.classList.add("active"); 
+                searchResults.classList.add("active");
                 searchResults.innerHTML = "<h2>Search Results</h2>No matching students found.";
             }
         }
