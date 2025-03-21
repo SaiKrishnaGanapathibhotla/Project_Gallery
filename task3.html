@@ -1,135 +1,77 @@
 <!DOCTYPE html>
-<head></head>
+<html>
+<head>
 <style>
     body {
-        align-items: center;
-        margin-top: 200px;
+        margin: 0; 
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        height: 100vh; 
+        
+    }
+
+    h1 {
+        position: fixed;
+        width: 100%; 
+        text-align: center;
+        color: white;
+        background-color: rgb(83, 83, 151);
+        height: 50px;
+        font-family: 'Times New Roman', Times, serif;
+        margin: 0; 
+        height: 50px; 
+        top: 0; 
+        z-index: 1000; 
+    }
+
+    section {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: center; 
+        gap: 10px; 
+        margin-top: 60px;    }
+
+    div {  
+        width: 150px;
+        height: 150px;
+        display: inline-block;
     }
-div{  
-    width:150px;
-    height:150px;
-    background-color: yellow;
-    display: inline-block;
-}
-#box1{
-    width:150px;
-    height:150px;
-    text-align: center;
-    padding-top: 50px;
-    background-color: white;
-    font-size: 60px;
-    color:blue;
-    display: inline-block; 
-}
-#box2{
-    width:150px;
-    height:150px;
-    text-align: center;
-    padding-top: 50px;
-    background-color: white;
-    font-size: 60px;
-    color:rgb(255, 123, 0);
-    display: inline-block; 
-}
-#box3{
-    width:150px;
-    height:150px;
-    text-align: center;
-    padding-top: 50px;
-    background-color: white;
-    font-size: 60px;
-    color:rgba(0, 255, 42, 0.479);
-    display: inline-block; 
-}
-#box4{
-    width:150px;
-    height:150px;
-    text-align: center;
-    padding-top: 50px;
-    background-color: white;
-    font-size: 60px;
-    color:rgb(155, 20, 121);
-    display: inline-block; 
-}
-#box5{
-    width:150px;
-    height:150px;
-    text-align: center;
-    padding-top: 50px;
-    background-color: white;
-    font-size: 60px;
-    color:rgb(255, 230, 0);
-    display: inline-block; 
-}
-#box6{
-    width:150px;
-    height:150px;
-    text-align: center;
-    padding-top: 50px;
-    background-color: white;
-    font-size: 60px;
-    color:rgb(163, 15, 15);
-    display: inline-block; 
-}
-#box7{
-    width:150px;
-    height:150px;
-    text-align: center;
-    padding-top: 50px;
-    background-color: white;
-    font-size: 60px;
-    color:rgb(217, 255, 0);
-    display: inline-block; 
-}
-#box1:hover{
-    cursor:pointer;
-    background-color: rgba(1, 1, 1, 0.479);
-    transform: scale(1.5);
-}
-#box2:hover{
-    cursor:pointer;
-    background-color: rgba(1, 1, 1, 0.479);
-    transform: scale(1.5);
-}
-#box3:hover{
-    cursor:pointer;
-    background-color: rgba(1, 1, 1, 0.479);
-    transform: scale(1.5);
-}
-#box4:hover{
-    cursor:pointer;
-    background-color: rgba(1, 1, 1, 0.479);
-    transform: scale(1.5);
-}
-#box5:hover{
-    cursor:pointer;
-    background-color: rgba(1, 1, 1, 0.479);
-    transform: scale(1.5);
-}
-#box6:hover{
-    cursor:pointer;
-    background-color: rgba(1, 1, 1, 0.479);
-    transform: scale(1.5);
-}
-#box7:hover{
-    cursor:pointer;
-    background-color: rgba(1, 1, 1, 0.479);
-    transform: scale(1.5);
-}
 
+    #box1, #box2, #box3, #box4, #box5, #box6, #box7 {
+        width: 150px;
+        height: 150px;
+        text-align: center;
+        padding-top: 50px;
+        font-size: 60px;
+        display: inline-block;
+    }
+
+    #box1 { color: blue; }
+    #box2 { color: rgb(255, 123, 0); }
+    #box3 { color: rgba(0, 255, 42, 0.479); }
+    #box4 { color: rgb(155, 20, 121); }
+    #box5 { color: rgb(255, 230, 0); }
+    #box6 { color: rgb(163, 15, 15); }
+    #box7 { color: rgb(217, 255, 0); }
+
+    #box1:hover, #box2:hover, #box3:hover, #box4:hover, #box5:hover, #box6:hover, #box7:hover {
+        cursor: pointer;
+        background-color: rgba(1, 1, 1, 0.479);
+        transform: scale(1.5);
+    }
 </style>
+</head>
 <body>
-
-        <div id="box1">K</div>
-        <div id="box2">R</div>
-        <div id="box3">I</div>
-        <div id="box4">S</div>
-        <div id="box5">H</div>
-        <div id="box6">N</div>
-        <div id="box7">A</div>
-
+<h1>Task3 - CSS Hover</h1>
+<section>
+    <div id="box1">K</div>
+    <div id="box2">R</div>
+    <div id="box3">I</div>
+    <div id="box4">S</div>
+    <div id="box5">H</div>
+    <div id="box6">N</div>
+    <div id="box7">A</div>
+</section>
 </body>
 </html>
