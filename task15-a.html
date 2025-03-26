@@ -1,70 +1,119 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Age Calculator</title>
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
     <style>
+        /* Styling the header */
         h1 {
             color: whitesmoke;
-            background-color: rgb(83, 83, 151);
+            background-color: rgb(45, 45, 121);
             display: flex;
             justify-content: center;
             align-items: center;
             width: 100%;
-            height: 45px;
+            height: 60px;
+            font-family: 'Arial', sans-serif;
+            font-size: 28px;
         }
 
-        div {
-            margin-top: 50px;
-            margin-left: 25%;
+        /* Styling the main container */
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f5;
+            margin: 0;
         }
-        input {
-            padding: 12px;
-            margin-left: 10px;
-            font-family: 'Times New Roman', Times, serif;
-            border-style: none;
-            border-radius: 5px;
-            color: whitesmoke;
-            background-color: rgb(83, 83, 151,0.5);
-            width: 200px;
-            height: 30px;
+
+        /* Card style for calculator */
+        .card {
+            background-color: white;
+            width: 350px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
             text-align: center;
+            font-family: 'Arial', sans-serif;
         }
+
+        /* Styling input fields */
+        input[type="text"] {
+            padding: 10px;
+            font-family: 'Arial', sans-serif;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            color: #333;
+            background-color: #f7f7f7;
+            width: 90%;
+            height: 40px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        /* Styling labels */
         label {
-            font-size: 35px;
-            color:red;
+            font-size: 18px;
+            color: rgb(45, 45, 121);
+            display: block;
+            margin-bottom: 10px;
         }
-        #output{
-            padding: 12px;
-            margin-left: 10px;
-            font-family: 'Times New Roman', Times, serif;
+
+        /* Styling the output section */
+        #output {
+            margin-top: 20px;
+            font-size: 20px;
+            color: rgb(45, 45, 121);
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Additional styling for the result */
+        #output strong {
+            color: crimson;
+        }
+
+        /* Hint styling */
+        .hint {
+            font-size: 14px;
+            color: #999;
+            margin-top: 5px;
         }
     </style>
-    <body>
-        <h1>Task 15 A - Age Calculator</h1>
-        <div class="container">
-            <label>Select your Date of Birth :</label>
-            <input type="date" id="dob" onchange="getAge()">
+</head>
+<body>
+    <h1>Age Calculator</h1>
+    <div class="main">
+        <div class="card">
+            <label for="dob">Enter Your Date of Birth:</label>
+            <input type="text" id="dob" placeholder="YYYY-MM-DD" onchange="getAge()">
+            <p class="hint">Example: 1990-04-25</p>
             <div id="output"></div>
         </div>
+    </div>
 
-        <script>
-            function getAge() {
-                const dobInput = document.getElementById('dob').value;
-                if (dobInput) {
-                    const dob = new Date(dobInput);
-                    const today = new Date();
+    <script>
+        function getAge() {
+            const dobInput = document.getElementById('dob').value;
+            if (dobInput) {
+                const dob = new Date(dobInput);
+                const today = new Date();
 
-                    let age = today.getFullYear() - dob.getFullYear();
-                    const monthDiff = today.getMonth() - dob.getMonth();
-                    const dayDiff = today.getDate() - dob.getDate();
-                    if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
-                        age--;
-                    }
-
-                    document.getElementById("output").innerHTML = `<h3 style=" font-size: 35px; margin-left: 10px;">You are ${age} Years Old</h3>`;
+                let age = today.getFullYear() - dob.getFullYear();
+                const monthDiff = today.getMonth() - dob.getMonth();
+                const dayDiff = today.getDate() - dob.getDate();
+                if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+                    age--;
                 }
+
+                document.getElementById("output").innerHTML = 
+                    `<p>You are <strong>${age}</strong> years old.</p>`;
+            } else {
+                document.getElementById("output").innerHTML = 
+                    `<p><strong>Please enter a valid date in YYYY-MM-DD format.</strong></p>`;
             }
-        </script>
-    </body>
+        }
+    </script>
+</body>
 </html>
